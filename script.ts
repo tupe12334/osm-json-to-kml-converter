@@ -16,18 +16,21 @@ function convertJsonToKml(jsonData: JsonObject): string {
   let kmlData = '<?xml version="1.0" encoding="UTF-8"?>\n';
   kmlData += '<kml xmlns="http://www.opengis.net/kml/2.2">\n';
   kmlData += "<Document>\n";
+  kmlData += `<name>${jsonData.name} Document</name>\n`;
 
-  // Create a Placemark for the location
-  kmlData += "<Placemark>\n";
-  kmlData += `<name>${jsonData.name}</name>\n`;
-  kmlData += `<description>${jsonData.display_name}</description>\n`;
-  kmlData += "<Point>\n";
-  kmlData += `<coordinates>${jsonData.lon},${jsonData.lat}</coordinates>\n`;
-  kmlData += "</Point>\n";
-  kmlData += "</Placemark>\n";
+  //   // Create a Placemark for the location
+  //   kmlData += "<Placemark>\n";
+  //   kmlData += `<name>${jsonData.name}</name>\n`;
+  //   kmlData += `<description>${jsonData.display_name}</description>\n`;
+  //   kmlData += "<Point>\n";
+  //   kmlData += `<coordinates>${jsonData.lon},${jsonData.lat}</coordinates>\n`;
+  //   kmlData += "</Point>\n";
+  //   kmlData += "</Placemark>\n";
 
   // Create a Polygon for the geojson coordinates
   kmlData += "<Placemark>\n";
+  kmlData += `<name>${jsonData.name}</name>\n`;
+  kmlData += `<description>${jsonData.display_name}</description>\n`;
   kmlData += "<Polygon>\n";
   kmlData += "<outerBoundaryIs>\n";
   kmlData += "<LinearRing>\n";
